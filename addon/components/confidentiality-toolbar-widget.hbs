@@ -1,0 +1,19 @@
+{{#if this.enabled}}
+  <div class='say-toolbar__group'>
+    <button
+      type='button'
+      class='say-toolbar__button'
+      title='Confidential'
+      {{on 'click' this.toggleMark}}
+    >
+      <AuIcon
+        @icon='not-visible'
+        @ariaHidden={{true}}
+        @size='large'
+      />
+      <span class='au-u-hidden-visually'>
+        Confidential
+      </span>
+    </button>
+  </div>
+{{/if}}
