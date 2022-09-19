@@ -1,0 +1,7 @@
+plugin:
+  sidebar:
+    title: Redacted Content
+    entry:
+      title: Redacted Text
+      remove: Remove redaction
+
