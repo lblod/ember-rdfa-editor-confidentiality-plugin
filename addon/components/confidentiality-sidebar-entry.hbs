@@ -1,15 +1,16 @@
-<AuCard
-  @divided={{true}}
-  @flex={{true}}
-  as |c|
->
+<AuCard @divided={{true}} @flex={{true}} @size='small' as |c|>
+  
   <c.content>
-    <strong>Origineel</strong>
-    <p>Tekst</p>
+    <div>
+      <h2 class="au-c-heading au-u-h5">Redacted text</h2>
+      <p class="au-u-para-small">
+        {{this.content}}
+      </p>
+    </div>
   </c.content>
   <c.footer>
-    <AuButton @alert={{true}}>
-      Verwijder
+    <AuButton @alert={{true}} onclick={{@onRemove}} class="au-u-padding-tiny">
+      Remove
     </AuButton>
   </c.footer>
 </AuCard>

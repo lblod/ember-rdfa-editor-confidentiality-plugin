@@ -1,26 +1,22 @@
-<div class="say-editor-hints__insert">
-  <div class="au-c-accordion au-c-accordion--reverse au-c-accordion--border">
-    <AuToolbar
-      @nowrap={{true}}
-      @reverse={{true}}
-      {{on 'click' this.toggle}}
-    >
+<div class='say-editor-hints__insert'>
+  <div class='au-c-accordion au-c-accordion--reverse au-c-accordion--border'>
+    <AuToolbar @nowrap={{true}} @reverse={{true}} {{on 'click' this.toggle}}>
       <AuToolbarGroup>
         <div>
           <AuButton
             @skin='tertiary'
             aria-hidden='true'
             focusable='false'
-            aria-expanded='{{if this.expanded 'true' 'false'}}'
+            aria-expanded='{{if this.expanded "true" "false"}}'
           >
-            Redacties {{this.confidentialMarks.size}}
+            Redacties ({{this.confidentialMarkGroups.length}})
           </AuButton>
         </div>
       </AuToolbarGroup>
       <AuToolbarGroup>
         {{#if this.expanded}}
           <AuIcon
-            @icon="not-visible"
+            @icon='not-visible'
             @alignment='left'
             @size='large'
             @ariaHidden='true'
@@ -30,7 +26,7 @@
           </span>
         {{else}}
           <AuIcon
-            @icon="not-visible"
+            @icon='not-visible'
             @alignment='left'
             @size='large'
             @ariaHidden='true'
@@ -41,12 +37,19 @@
         {{/if}}
       </AuToolbarGroup>
     </AuToolbar>
-    <div class={{if this.expanded "au-c-accordion__content" "au-u-hidden"}}>
-      <AuList @divider={{true}}>
-        <AuList::Item>
-          <ConfidentialitySidebarEntry/>
 
-        </AuList::Item>
+    <div class={{if this.expanded 'au-c-accordion__content' 'au-u-hidden'}}>
+      <AuList @divider={{true}}>
+        {{#each this.confidentialMarkGroups as |entry|}}
+          <AuList::Item>
+            <ConfidentialitySidebarEntry
+              @content='test'
+              @entry={{entry}}
+              @onRemove={{(fn this.removeConfidentialMarkGroup entry)}}
+            />
+          </AuList::Item>
+        {{/each}}
+
       </AuList>
     </div>
   </div>
