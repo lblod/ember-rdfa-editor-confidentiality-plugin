@@ -2,7 +2,7 @@
   
   <c.content>
     <div>
-      <h2 class="au-c-heading au-u-h5">Redacted text</h2>
+      <h2 class="au-c-heading au-u-h5">{{t "sidebar.entry.title"}}</h2>
       <p class="au-u-para-small">
         {{this.content}}
       </p>
@@ -10,7 +10,7 @@
   </c.content>
   <c.footer>
     <AuButton @alert={{true}} onclick={{@onRemove}} class="au-u-padding-tiny">
-      Remove
+      {{t "sidebar.entry.remove"}}
     </AuButton>
   </c.footer>
 </AuCard>

@@ -9,28 +9,22 @@
             focusable='false'
             aria-expanded='{{if this.expanded "true" "false"}}'
           >
-            Redacties ({{this.confidentialMarkGroups.length}})
+            {{t "sidebar.title"}} ({{this.confidentialMarkGroups.length}})
           </AuButton>
         </div>
       </AuToolbarGroup>
       <AuToolbarGroup>
-        {{#if this.expanded}}
-          <AuIcon
+        <AuIcon
             @icon='not-visible'
             @alignment='left'
             @size='large'
             @ariaHidden='true'
           />
+        {{#if this.expanded}}
           <span class='au-u-hidden-visually'>
             Open accordion
           </span>
         {{else}}
-          <AuIcon
-            @icon='not-visible'
-            @alignment='left'
-            @size='large'
-            @ariaHidden='true'
-          />
           <span class='au-u-hidden-visually'>
             Sluit accordion
           </span>
@@ -43,7 +37,6 @@
         {{#each this.confidentialMarkGroups as |entry|}}
           <AuList::Item>
             <ConfidentialitySidebarEntry
-              @content='test'
               @entry={{entry}}
               @onRemove={{(fn this.removeConfidentialMarkGroup entry)}}
             />

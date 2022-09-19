@@ -3,7 +3,7 @@
     <button
       type='button'
       class='say-toolbar__button'
-      title='Confidential'
+      title={{t 'toolbar.button.title'}}
       {{on 'click' this.toggleMark}}
     >
       <AuIcon
@@ -12,7 +12,7 @@
         @size='large'
       />
       <span class='au-u-hidden-visually'>
-        Confidential
+        {{t 'toolbar.button.title'}}
       </span>
     </button>
   </div>

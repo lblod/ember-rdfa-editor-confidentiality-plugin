@@ -1,0 +1,8 @@
+sidebar:
+  title: Redacties
+  entry:
+    title: Geredacteerde tekst
+    remove: Verwijder Redactie
+toolbar:
+  button:
+    title: Redacteren
