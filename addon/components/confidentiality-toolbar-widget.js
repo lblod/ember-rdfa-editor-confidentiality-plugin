@@ -25,7 +25,6 @@ export default class ConfidentialityToolbarWidget extends Component {
     const { currentSelection: selection } = transaction;
     if (this.modifiesSelection(steps)) {
       this.selectedText = selection.lastRange.getTextContent();
-      console.log('SELECTED TEXT', this.selectedText);
       this.enabled =
         !selection.isCollapsed && !selection.hasMark('confidentiality-mark');
     }
