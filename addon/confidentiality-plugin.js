@@ -11,7 +11,7 @@ export default class ConfidentialityPlugin {
     this.controller = controller;
     controller.registerWidget({
       componentName: 'confidentiality-toolbar-widget',
-      desiredLocation: 'toolbar',
+      desiredLocation: 'toolbarMiddle',
       identifier: 'confidentiality-plugin/toolbar-button',
     });
     controller.registerWidget({
