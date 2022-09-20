@@ -19,7 +19,6 @@ const confidentialityMarkSpec = {
       tag: 'span',
       attributes: {
         'data-confidential': true,
-        class: 'au-c-pill small au-c-pill--link',
         property: 'ext:redacted',
         title: 'Geredacteerde tekst',
       },

@@ -15,7 +15,7 @@
       </AuToolbarGroup>
       <AuToolbarGroup>
         <AuIcon
-            @icon='not-visible'
+            @icon={{if this.expanded 'chevron-down' 'chevron-right'}}
             @alignment='left'
             @size='large'
             @ariaHidden='true'
@@ -33,6 +33,7 @@
     </AuToolbar>
 
     <div class={{if this.expanded 'au-c-accordion__content' 'au-u-hidden'}}>
+      {{#if this.confidentialMarkGroups}}
       <AuList @divider={{true}}>
         {{#each this.confidentialMarkGroups as |entry|}}
           <AuList::Item>
@@ -44,6 +45,13 @@
         {{/each}}
 
       </AuList>
+      {{else}}
+      <AuAlert
+        @title="Nog geen redacties aanwezig in dit document"
+        @icon="circle-info"
+        @size="small"
+        />
+      {{/if}}
     </div>
   </div>
 </div>

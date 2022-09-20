@@ -1,15 +1,14 @@
-<AuCard @divided={{true}} @flex={{true}} @size='small' as |c|>
-  
+<AuCard @divided={{false}} @flex={{true}} @size='small' as |c|>
   <c.content>
     <div>
-      <h2 class="au-c-heading au-u-h5">{{t "sidebar.entry.title"}}</h2>
-      <p class="au-u-para-small">
-        {{this.content}}
+      <AuHeading @level="2" @skin="5">{{t "sidebar.entry.title"}}</AuHeading>
+      <p class="au-u-para-small au-u-padding-top-tiny">
+        <AuPill>{{this.content}}</AuPill>
       </p>
     </div>
   </c.content>
   <c.footer>
-    <AuButton @alert={{true}} onclick={{@onRemove}} class="au-u-padding-tiny">
+    <AuButton @skin="naked" @icon="bin" @iconAlignment="left" @alert={{true}} onclick={{@onRemove}} class="au-u-padding-none">
       {{t "sidebar.entry.remove"}}
     </AuButton>
   </c.footer>
