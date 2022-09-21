@@ -6,11 +6,14 @@
 @import 'ember-rdfa-editor';
 
 .rdfa-annotations {
+  [property='ext:redacted'] {
+    background-color: var(--au-red-200);
+  }
   [property='ext:redacted'] del {
     text-decoration: none;
     position: relative;
     color: var(--au-red-700);
-    background-color: var(--au-red-200);
+    
     padding-left: $au-unit-tiny/2;
     padding-right: $au-unit-tiny/2;
 
