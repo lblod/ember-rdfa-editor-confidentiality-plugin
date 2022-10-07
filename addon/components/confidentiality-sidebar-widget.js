@@ -9,9 +9,12 @@ export default class ConfidentialitySidebarWidget extends Component {
 
   constructor(parent, args) {
     super(parent, args);
-    this.args.controller.addTransactionStepListener(this.update.bind(this));
-    // const marks = this.controller.getMarksFor('confidentiality-mark');
-    // this.confidentialMarks = marks;
+    this.controller.addTransactionStepListener(this.update);
+  }
+
+  willDestroy() {
+    this.controller.removeTransactionStepListener(this.update);
+    super.willDestroy();
   }
 
   get controller() {
@@ -22,12 +25,12 @@ export default class ConfidentialitySidebarWidget extends Component {
     return steps.some((step) => step.type === 'operation-step');
   }
 
-  update(transaction) {
+  update = (transaction) => {
     const marks = transaction
       .getMarksManager()
       .getVisualMarkGroupsByMarkName('confidentiality-mark');
     this.confidentialMarkGroups = marks;
-  }
+  };
 
   @action
   removeConfidentialMarkGroup(markGroup) {

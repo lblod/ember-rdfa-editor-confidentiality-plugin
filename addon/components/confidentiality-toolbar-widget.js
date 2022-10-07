@@ -8,7 +8,12 @@ export default class ConfidentialityToolbarWidget extends Component {
 
   constructor(parent, args) {
     super(parent, args);
-    this.args.controller.addTransactionStepListener(this.update.bind(this));
+    this.controller.addTransactionStepListener(this.update);
+  }
+
+  willDestroy() {
+    this.controller.removeTransactionStepListener(this.update);
+    super.willDestroy();
   }
 
   get controller() {
@@ -21,14 +26,14 @@ export default class ConfidentialityToolbarWidget extends Component {
     );
   }
 
-  update(transaction, steps) {
+  update = (transaction, steps) => {
     const { currentSelection: selection } = transaction;
     if (this.modifiesSelection(steps)) {
       this.selectedText = selection.lastRange.getTextContent();
       this.enabled =
         !selection.isCollapsed && !selection.hasMark('confidentiality-mark');
     }
-  }
+  };
 
   @action
   toggleMark() {
