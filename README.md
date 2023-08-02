@@ -1,5 +1,6 @@
 ember-rdfa-editor-confidentiality-plugin
 ==============================================================================
+:warning: This ember addon is no longer maintained.
 
 Plugin which provides functionality to mark certain portions of the document as sensitive material.
 Note: this plugin uses the new plugin architecture. It needs to be passed to the editor for inititialization.
